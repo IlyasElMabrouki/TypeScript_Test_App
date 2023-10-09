@@ -1,3 +1,6 @@
 export default function Home() {
-  return <h1>Hi World</h1>
+  function getName(name: String) {
+    return name;
+  }
+  return <div>{getName('Ilyas')}</div>;
 }
