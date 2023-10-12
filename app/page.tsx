@@ -1,39 +1,13 @@
 export default function Home() {
-  interface person {
-    name: string;
-    age: number;
-    getAge: () => number;
-    getCountry(country: string): string;
+  class Student {
+    constructor(private name: string, private level: string) {
+      console.log("New Instance is created")
+    }
+    toString(): string {
+      return `Hi, My name is ${this.name}, and I'm a student in ${this.level}`;
+    }
   }
 
-  interface student extends person {
-    gpa: number;
-    level: string;
-    getLevel(): string;
-  }
-
-  let ilyas: student = {
-    name: 'ilyas',
-    age: 21,
-    gpa: 15.56,
-    level: 'GLSID2',
-    getAge() {
-      return this.age;
-    },
-    getCountry(country: string) {
-      return country;
-    },
-    getLevel() {
-      return this.level + ' ' + this.gpa;
-    },
-  };
-  return (
-    <div>
-      {ilyas.getAge() +
-        ' ' +
-        ilyas.getCountry('Maroc') +
-        ' ' +
-        ilyas.getLevel()}
-    </div>
-  );
+  let ilyas = new Student('ilyas', 'GLSID2');
+  return <div>{ilyas.toString()}</div>;
 }
